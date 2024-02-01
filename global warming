@@ -1,0 +1,30 @@
+import discord
+from discord.ext import commands
+
+intents = discord.Intents.default()
+intents.message_content = True
+
+bot = commands.Bot(command_prefix='$', intents=discord.Intents.default())
+
+@bot.event
+async def on_ready():
+    print(f'We have logged in as {bot.user}')
+
+@bot.command()
+async def what_can_cause_global_warming(ctx):
+    await ctx.send(f'Поскольку выбросы парниковых газов окутывают всю Землю, они удерживают солнечное тепло. Это приводит к глобальному потеплению и изменению климата. В настоящее время потепление на Земле происходит быстрее, чем когда-либо за всю историю наблюдений. {bot.user}!')
+
+@bot.command()
+async def what_is_global_warming(ctx):
+    await ctx.send(f'Глоба́льное потепле́ние — долгосрочное повышение средней температуры климатической системы Земли, происходящее уже более века, основной причиной чего, по мнению подавляющего большинства учёных, является человеческая деятельность {bot.user}!')
+
+@bot.command()
+async def joke_a_minute(ctx):
+    await ctx.send(f'— Прикинь, сейчас прямо перед офисом меня чуть не переехали два бородатых мужика на черном лексусе! — Батюшки! — Да, они...{bot.user}!')
+
+
+@bot.command()
+async def heh(ctx, count_heh = 5):
+    await ctx.send("he" * count_heh)
+
+bot.run("MTEyNzUzNzg5MTQ2MDAxMDA2NA.G-Gi4_.M-mFx_pUccMvZXN1zbfh09E5b922ulOQQqZi28")
